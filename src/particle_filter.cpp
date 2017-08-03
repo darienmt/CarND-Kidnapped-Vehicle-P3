@@ -150,7 +150,6 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
   double stdLandmarkRange = std_landmark[0];
   double stdLandmarkBearing = std_landmark[1];
 
-  int counter = 0;
   for (int i = 0; i < num_particles; i++) {
 
     double x = particles[i].x;
@@ -208,16 +207,13 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
       double dY = observationY - landmarkY;
 
       double weight = ( 1/(2*M_PI*stdLandmarkRange*stdLandmarkBearing)) * exp( -( dX*dX/(2*stdLandmarkRange*stdLandmarkRange) + (dY*dY/(2*stdLandmarkBearing*stdLandmarkBearing)) ) );
-
-      particles[i].weight *= weight;
-      if ( weight == 0 ) {
-        counter++;
+      if (weight == 0) {
+        particles[i].weight *= EPS;
+      } else {
+        particles[i].weight *= weight;
       }
     }
   }
-  if (counter > 0 ){
-  cout << " zeros : " << counter << endl;
-}
 }
 
 void ParticleFilter::resample() {
