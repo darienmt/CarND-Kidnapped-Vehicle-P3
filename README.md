@@ -1,5 +1,4 @@
 # CarND-Kipnapped-Vehicle-P3
-# CarND-Kipnapped-Vehicle-P3
 Udacity Self-Driving Car Nanodegree - Kipnapped Vehicle project
 
 # Overview
@@ -51,7 +50,7 @@ Clicking on "Select," the simulator for the Kidnapped project start and the Part
 
 Clicking on "Start" button, the vehicle starts moving, and the blue circle(the filter calculated position) moves with it. After a while, the simulator informs you if your Particle Filter passed or failed. Here is an example of the filter passing the test:
 
-![Simulator Kidnapped Vehicle Passed](images/simulator_final_step.png)
+![Simulator Kidnapped Vehicle Passed](images/simulator_final_state.png)
 
 # Code description
 
